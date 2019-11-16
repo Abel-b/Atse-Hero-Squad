@@ -12,37 +12,75 @@ import static org.junit.Assert.assertTrue;
 public class SquadTest {
 
     @Test
-    public void squadTest_instantiatesCorrectly_true() throws Exception{
-        Squad squad = new Squad("Suicide", 3);
-        boolean expected = true;
-        assertTrue(expected);
+    public void newSquad_instantiatesCorrectly_true() {
+        Squad newSquad = setUpNewSquad();
+        assertTrue(newSquad instanceof Squad);
     }
     @Test
-    public void squadTest_testsGetterMethods_getSquadName()throws Exception{
-        Squad squad = setupNewSquad();
-        String expected = "Name";
-        assertEquals(expected, squad.getSquadName());
+    public void newSquad_getName_String() {
+        Squad newSquad = setUpNewSquad();
+        assertEquals("Name",newSquad.getSquadName());
     }
     @Test
-    public void squadTest_testsGetterMethods_getSquadMembers()throws Exception{
-        Squad squad = setupNewSquad();
-        Hero hero = new Hero("Abel", 20, "Coffee", "Coffee");
-        List<Hero> expected = new ArrayList<>();
-        assertEquals(expected, squad.getSquadMembers());
+    public void newSquad_getSize_Int() {
+        Squad squad = setUpNewSquad();
+        assertEquals(3, squad.getMaxSize());
     }
     @Test
-    public void squadTest_testsGetterMethods_getMaxSize()throws Exception{
-        Squad squad = setupNewSquad();
-        Hero hero = new Hero("csc", 3, "cx", "sacxs");
-        Hero hero1 = new Hero("csc", 3, "cx", "sacxs");
-        Hero hero3 = new Hero("csc", 3, "cx", "sacxs");
-        int expected = 1;
-        assertEquals(expected, Squad.getMaxSize().size());
+    public void newSquad_getPower_String() {
+        Squad newSquad = setUpNewSquad();
+        assertEquals("SOMETHING",newSquad.getCause());
+    }
+    @Test
+    public void newSquad_getInstances_true() {
+        Squad newSquad = setUpNewSquad();
+        Squad another = setUpNewSquad();
+        assertTrue(Squad.getInstances().contains(newSquad));
+        assertTrue(Squad.getInstances().contains(another));
+    }
+    @Test
+    public void newSquad_getSquadMembers_Array() {
+        Squad newSquad = setUpNewSquad();
+        Hero newHero = Hero.setUpNewHero();
+        Hero newHero1 = Hero.setUpNewHero1();
+        newSquad.setSquadMembers(newHero);
+        assertEquals("Fasika",newSquad.getSquadMembers().get(0).getHeroName());
+    }
+
+    @Test
+    public void newSquad_allTestSquadMembers_Array() {
+        Hero newHero = Hero.setUpNewHero();
+        Squad newSquad = setUpNewSquad();
+        newSquad.clearAllSquadMembers();
+        newSquad.getSquadMembers().add(newHero);
+        newSquad.getSquadMembers().add(newHero);
+        assertEquals("Fasika",newSquad.getSquadMembers().get(0).getHeroName());
+    }
+    @Test
+    public void addMember_addsMemberToSquad_Hero(){
+        Hero newHero = Hero.setUpNewHero();
+        Squad testSquad = setUpNewSquad();
+        Squad newSquad = Squad.findBySquadId(1);
+        newSquad.clearAllSquadMembers();
+        newSquad.getSquadMembers().add(newHero);
+        newSquad.getSquadMembers().add(newHero);
+        assertEquals(2,newSquad.getSquadMembers().size());
+    }
+
+    @Test
+    public void setNewMember_hero(){
+        Hero.clearAllHeroes();
+        Hero newHwero = Hero.setUpNewHero();
+        Squad testSquad = setUpNewSquad();
+        testSquad.setSquadMembers(newHwero);
+
+        assertEquals(1,testSquad.getSquadMembers().get(0).getId());
     }
 
 
-    private Squad setupNewSquad() {
-        return new Squad("Name", 3);
+
+    private Squad setUpNewSquad() {
+        return new Squad("Name", 3, "SOMETHING");
     }
 
 
