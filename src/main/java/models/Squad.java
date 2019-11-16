@@ -6,37 +6,54 @@ import java.util.List;
 
 public class Squad {
 
-    private List<Hero> mSquadMembers = new ArrayList<>();
-    private static ArrayList<Hero> heroInstances = new ArrayList<>();
-    private String mSquadName;
-    private int mMaxSize;
+    private  ArrayList<Hero> squadMembers = new ArrayList<>();
+    private static ArrayList<Squad> instances = new ArrayList<>();
+    private int squadId;
+    private String squadPurpose;
+    private String squadName;
+    private int maxSize;
 
-    public Squad(String mSquadName, int mMaxSize) {
-        this.mSquadName = mSquadName;
-        this.mMaxSize = heroInstances.size();
+    public Squad(String squadName, int maxSize, String squadPurpose) {
+        this.squadName = squadName;
+        this.maxSize = maxSize;
+        this.squadPurpose = squadPurpose;
+        instances.add(this);
+        this.squadId = instances.size();
+
     }
 
-    public List<Hero> getSquadMembers() {
-        return mSquadMembers;
+    public int getSquadId(){
+        return squadId;
     }
-
+    public static Squad findBySquadId(int id) {
+        return instances.get(id-1);
+    }
     public String getSquadName() {
-        return mSquadName;
+        return squadName;
+    }
+    public int getMaxSize() {
+        return maxSize;
+    }
+    public String getCause() {
+        return this.squadPurpose;
+    }
+    public static ArrayList<Squad> getInstances(){
+        return instances;
+    }
+    public ArrayList<Hero> getSquadMembers(){
+        return squadMembers;
+    }
+    public void setSquadMembers(Hero newMember) {
+        squadMembers.add(newMember);
+    }
+    public static void clearAllSquads(){
+        instances.clear();
+    }
+    public void clearAllSquadMembers(){
+        getSquadMembers().clear();
     }
 
-    public static ArrayList<Hero> getMaxSize(){
-        return heroInstances;
-    }
+    public static Squad setUpNewSquad1(){return new Squad("Avengers",5,"INFINITY STONE");}
+    public static Squad setUpNewSquad2(){return new Squad("GameBoy",5,"PEACE");}
 
-    public String addHero(Hero newHero) {
-        if (mMaxSize <= 3) {
-            mSquadMembers.add(newHero);
-            mMaxSize++;
-            return "Hero successfully added!";
-        } else {
-            return "Squad is full. Create a new Squad.";
-        }
-    }
 }
-
-

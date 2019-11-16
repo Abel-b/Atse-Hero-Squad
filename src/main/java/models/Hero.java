@@ -80,4 +80,15 @@ public class Hero {
     public void defends(){
         mHealth += 6;
     }
+
+    public static Hero setUpNewHero(){
+        return new Hero("Fasika",23,"flying","Fire");
+    }
+    public static Hero setUpNewHero1(){
+        return new Hero("Hannah",20,"Night Vision","Light");
+    }
+    public static Hero setUpNewHero2(){
+        return new Hero("Jay",30,"24hrs up","Coffee");
+    }
+
 }
