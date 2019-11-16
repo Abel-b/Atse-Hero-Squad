@@ -63,23 +63,11 @@ public class Hero {
         this.weakness = weakness;
     }
 
-    public int getmAttack() {
-        return mAttack;
+    public static Hero findById(int id){
+        return instances.get(id-1);
     }
 
-    public int getmDefense() {
-        return mDefense;
-    }
 
-    public int getmHealth() {
-        return mHealth;
-    }
-    public void attacks(Hero opponent){
-        opponent.mHealth -= mAttack;
-    }
-    public void defends(){
-        mHealth += 6;
-    }
 
     public static Hero setUpNewHero(){
         return new Hero("Fasika",23,"flying","Fire");

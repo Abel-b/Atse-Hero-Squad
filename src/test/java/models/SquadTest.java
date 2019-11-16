@@ -56,16 +56,16 @@ public class SquadTest {
         newSquad.getSquadMembers().add(newHero);
         assertEquals("Fasika",newSquad.getSquadMembers().get(0).getHeroName());
     }
-    @Test
-    public void addMember_addsMemberToSquad_Hero(){
-        Hero newHero = Hero.setUpNewHero();
-        Squad testSquad = setUpNewSquad();
-        Squad newSquad = Squad.findBySquadId(1);
-        newSquad.clearAllSquadMembers();
-        newSquad.getSquadMembers().add(newHero);
-        newSquad.getSquadMembers().add(newHero);
-        assertEquals(2,newSquad.getSquadMembers().size());
-    }
+//    @Test
+//    public void addMember_addsMemberToSquad_Hero(){
+//        Hero newHero = Hero.setUpNewHero();
+//        Squad testSquad = setUpNewSquad();
+//        Squad newSquad = Squad.findBySquadId(1);
+//        newSquad.clearAllSquadMembers();
+//        newSquad.getSquadMembers().add(newHero);
+//        newSquad.getSquadMembers().add(newHero);
+//        assertEquals(2,newSquad.getSquadMembers().size());
+//    }
 
     @Test
     public void setNewMember_hero(){

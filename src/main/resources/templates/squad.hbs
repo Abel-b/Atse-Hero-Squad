@@ -11,7 +11,7 @@
                 <h2>Choose Squad Members</h2>
                 {{#each heroes}}
                     <div class="hero-item">
-                        <img src="/img/DIAMONDHEAD06_4C.png" alt="">
+                        <img src="" alt="">
                         <div class="hero-detail">
                             <p>Name: {{heroName}}</p>
                             <p>Super power: {{ superPower }}</p>
@@ -40,8 +40,8 @@
                             <button class="addMember add-btn" >Add New Member</button>
                             {{#each squadMembers}}
                                 <div class="member-cont">
-                                    <h5>Name: {{this.name}}</h5>
-                                    <h5>Power: {{power}}</h5>
+                                    <h5>Name: {{this.squadName}}</h5>
+                                    <h5>Power: {{superPower}}</h5>
                                     <Button class="btns">Remove</Button>
                                 </div>
                             {{/each}}
@@ -56,9 +56,5 @@
         </div>
 
     </section>
-{{/partial}}
-{{#partial "footer"}}
-    <script type="text/javascript" src="/js/jquery-3.4.0.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
 {{/partial}}
 {{> layout.hbs}}
