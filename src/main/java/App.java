@@ -95,10 +95,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int id= Integer.parseInt(req.params(":id"));
             Hero newMember = Hero.findById(id);
-            Squad newSquad = Squad.findBySquadId(1);
-            newSquad.setSquadMembers(newMember);
             model.put("item", newMember.getHeroName());
-            model.put("newHero",newSquad.getSquadName());
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
