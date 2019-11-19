@@ -1,0 +1,26 @@
+
+{{#partial "content"}}
+        <h2> <a class="btn btn-warning" href="/hero-form" >Create Your Hero</a> <br><br> CURRENT HEROES</h2>
+        <div class="heroes">
+            <div class="row">
+
+                {{#each hero}}
+                <div class="col-md-6">
+                    <div class="card">
+                    <img src="/images/hero1.jpeg" alt="">
+                    <div class="container">
+                        <h3>Hero: {{ heroName }} </h3>
+                        <p>Age: {{ heroAge }}</p>
+                        <p>Special power: {{ superPower }}</p>
+                        <p>Weakness: {{ weakness }}</p>
+                        <p>Id: {{ id }}</p>
+                        <a href="new/{{id}}" class="btns">Learn More</a>
+                        <a href="/squad" class="btn btn-success">Add {{ heroName }} To Squad</a>
+                    </div>
+                </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{/partial}}
+{{> layout.hbs}}
