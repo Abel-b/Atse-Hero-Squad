@@ -1,1 +1,1 @@
-web: ./build/install/atse-Hero-Squad/bin/atse-Hero-Squad
+web: ./build/install/atse-app/bin/atse-app
