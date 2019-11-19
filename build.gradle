@@ -22,4 +22,4 @@ dependencies {
 
 applicationName = "atse-app"
 mainClassName = 'App'
-task stage(dependsOn: ['clean', 'installDist'])
+task stage(dependsOn: ['clean', 'installApp'])
