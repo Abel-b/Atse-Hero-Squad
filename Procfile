@@ -1,0 +1,1 @@
+web: ./build/install/atse-Hero-Squad/bin/atse-Hero-Squad

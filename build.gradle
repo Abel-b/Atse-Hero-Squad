@@ -6,8 +6,9 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+applicationName = "atse-Hero-Squad"
 mainClassName = 'App'
-
+task stage(dependsOn: ['clean', 'installDist'])
 sourceCompatibility = 1.8
 
 repositories {
