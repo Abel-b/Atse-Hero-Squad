@@ -17,6 +17,7 @@ public class Squad {
         this.squadName = squadName;
         this.maxSize = maxSize;
         this.squadPurpose = squadPurpose;
+        this.squadMembers = new ArrayList<>();
         instances.add(this);
         this.squadId = instances.size();
 
