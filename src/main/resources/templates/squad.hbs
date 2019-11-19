@@ -30,10 +30,12 @@
                         <div>
                             <h1>{{ squadName }} </h1>
                             <p>Id: {{squadId}}</p>
+                            <p>Purpose: {{squadPurpose}}</p>
                             <p>Max participants: {{ maxSize }}</p>
                             <a class="btns" href="/squad/new/{{id}}">Add To Squad</a>
 
                             <br><br>
+                            <h3>MEMBERS</h3>
                             {{#each squadMembers}}
                                 <div class="member-cont">
                                     <h5>Name: {{this.squadName}}</h5>
